@@ -17,7 +17,7 @@ class DialogBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: Colors.blue[300],
+      backgroundColor: Colors.white,
       content: Container(
         height: 220,
         child: Column(
@@ -31,7 +31,9 @@ class DialogBox extends StatelessWidget {
                 hintStyle: TextStyle(fontStyle: FontStyle.italic),
               ),
             ),
-            const SizedBox(height: 15,),
+            const SizedBox(
+              height: 15,
+            ),
             //get user name
             TextField(
               controller: nameController,
@@ -41,23 +43,35 @@ class DialogBox extends StatelessWidget {
                 hintStyle: TextStyle(fontStyle: FontStyle.italic),
               ),
             ),
-            const SizedBox(height: 25,),
+            const SizedBox(
+              height: 25,
+            ),
             //save and cancel button
             Row(
               children: [
-                const SizedBox(width: 20,),
+                const SizedBox(
+                  width: 20,
+                ),
                 //cancel button
                 MaterialButton(
                   onPressed: onCancel,
-                  color: Colors.blue[600],
-                  child: Text('Cancel'),
+                  color: Colors.white,
+                  child: Text(
+                    'Cancel',
+                    style: TextStyle(color: Colors.red.shade300),
+                  ),
                 ),
-                const SizedBox(width: 20,),
+                const SizedBox(
+                  width: 20,
+                ),
                 //save button
                 MaterialButton(
                   onPressed: onSave,
-                  color: Colors.blue[600],
-                  child: Text('Save'),
+                  color: Colors.white,
+                  child: Text(
+                    'Save',
+                    style: TextStyle(color: Colors.green.shade300),
+                  ),
                 ),
               ],
             ),

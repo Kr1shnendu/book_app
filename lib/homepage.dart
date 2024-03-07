@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               width: 10,
             ),
-            Text("Welcome!      "),
+            Text("Welcome!       "),
           ],
         ),
       ),
@@ -43,7 +43,7 @@ class _HomePageState extends State<HomePage> {
           itemCount: count,
           itemBuilder: (context, index) {
             return Padding(
-              padding: const EdgeInsets.all(15.0),
+              padding: const EdgeInsets.only(left: 15, right: 15, top: 18,),
               child: Card(
                 child: Column(
                   children: [

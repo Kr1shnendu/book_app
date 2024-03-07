@@ -66,8 +66,22 @@ class InfoTile extends StatelessWidget {
           ],
         ),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Colors.grey.shade200,
           borderRadius: BorderRadius.circular(12),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.shade500,
+              offset: Offset(4,4),
+              blurRadius: 10,
+              spreadRadius: 1,
+            ),
+            BoxShadow(
+              color: Colors.white,
+              offset: Offset(-4,-4),
+              blurRadius: 15,
+              spreadRadius: 1,
+            ),
+          ],
         ),
       ),
     );

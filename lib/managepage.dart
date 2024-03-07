@@ -51,13 +51,32 @@ class _ManagePageState extends State<ManagePage> {
 
   //save new box in ManagePage
   void saveNewBox () {
-    setState(() {
-      db.userList.add([ _bookController.text, _nameController.text, false ]);
-      _bookController.clear();
-      _nameController.clear();
-    });
-    Navigator.of(context).pop();
-    db.updateData();
+    if(_bookController.text.trim()!="" &&  _nameController.text.trim()!=""){
+      setState(() {
+        db.userList.add([ _bookController.text, _nameController.text, false ]);
+        _bookController.clear();
+        _nameController.clear();
+      });
+      Navigator.of(context).pop();
+      db.updateData();
+    }else{
+      showDialog(
+        context: context,
+        builder: (BuildContext context){
+          return AlertDialog(
+            title: Text("Fill the required informations*", style: TextStyle(fontSize: 13),),
+            actions: [
+              FilledButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text("Re-enter"),
+                )
+            ],
+          );
+        },
+      );
+    }
   }
 
   //create a new BOX
@@ -87,7 +106,7 @@ class _ManagePageState extends State<ManagePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue[100],
+      backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
         backgroundColor: Colors.blue,
         title: Text("Manage Books"),
